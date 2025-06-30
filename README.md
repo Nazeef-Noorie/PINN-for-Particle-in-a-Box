@@ -2,25 +2,21 @@
 
 This project implements a **Physics-Informed Neural Network (PINN)** to solve a 1D second-order differential **eigenvalue problem** of the form:
 
-\[
-\frac{d^2\psi}{dx^2} + \left(\frac{2\pi}{L}\right)^2 \psi = 0,\quad \psi(0)=\psi(L)=0
-\]
+d²ψ/dx² + (2π/L)² * ψ = 0, with ψ(0) = ψ(L) = 0
 
 The exact analytical solution is:  
-\[
-\psi(x) = \sin\left(\frac{2\pi x}{L}\right)
-\]
+ψ(x) = sin(2πx / L)
 
 ## 🔍 What this project does
 
 - Approximates the eigenfunction using a fully connected neural network.
 - Enforces:
-  - **Dirichlet boundary conditions**: \(\psi(0) = \psi(L) = 0\)
+  - **Dirichlet boundary conditions**:  ψ(0) = ψ(L) = 0
   - **Physics-based loss** via the differential equation residual
-  - **Normalization**: \(\int \psi^2 dx = 1\)
+  - **Normalization**:∫ ψ² dx = 1
 - Trains using PyTorch and visualizes both the **exact** and **predicted** wavefunctions during training.
 
-> Note: The network may converge to either \(+\psi(x)\) or \(-\psi(x)\) as both satisfy the same equation and constraints. This is expected and physically valid.
+> Note: The network may converge to either +ψ(x) or -ψ(x) as both satisfy the same equation and constraints. This is expected and physically valid.
 
 
 ## 📈 Output
